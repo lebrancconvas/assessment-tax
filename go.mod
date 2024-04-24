@@ -1,4 +1,4 @@
-module github.com/KKGo-Software-engineering/assessment-tax
+module github.com/lebrancconvas/assessment-tax
 
 go 1.21.9
 
