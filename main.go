@@ -30,5 +30,5 @@ func main() {
 	db.Init()
 
 	// Server Start
-	server.NewRouter()
+	server.Start()
 }
