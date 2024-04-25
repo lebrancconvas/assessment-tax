@@ -1,18 +1,15 @@
 package server
 
 import (
-	"net/http"
-
 	"github.com/labstack/echo/v4"
+	"github.com/lebrancconvas/assessment-tax/controller"
 )
 
 func NewRouter() *echo.Echo {
 	router := echo.New()
 
 	// Router
-	router.GET("/", func(c echo.Context) error {
-		return c.String(http.StatusOK, "Hello, Go Bootcamp!")
-	})
+	router.GET("/", controller.Hello)
 
 	return router
 }
