@@ -4,7 +4,9 @@ import (
 	"flag"
 	"fmt"
 	"os"
+
 	"github.com/lebrancconvas/assessment-tax/db"
+	"github.com/lebrancconvas/assessment-tax/server"
 )
 
 func init() {
@@ -28,5 +30,5 @@ func main() {
 	db.Init()
 
 	// Server Start
-
+	server.NewRouter()
 }
