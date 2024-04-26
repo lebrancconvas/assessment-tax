@@ -12,7 +12,7 @@ func NewRouter() *echo.Echo {
 	router.GET("/", controller.Hello)
 
 	// Core API
-	router.POST("/api/tax", controller.CalculateTaxController)
+	router.POST("/tax/calculations", controller.CalculateTaxController)
 
 	return router
 }
