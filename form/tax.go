@@ -1,6 +1,6 @@
 package form
 
-type TaxRequest struct {
+type RequestData struct {
 	TotalIncome float64 `json:"totalIncome"`
 	WHT	float64 `json:"wht"`
 	Allowances []Allowance `json:"allowances"`
@@ -9,4 +9,13 @@ type TaxRequest struct {
 type Allowance struct {
 	AllowanceType string `json:"allowanceType"`
 	Amount float64 `json:"amount"`
+}
+
+type ResponseData struct {
+	Tax float64 `json:"tax"`
+}
+
+type Rate struct {
+	LimitIncome float64
+	TaxRate float64
 }

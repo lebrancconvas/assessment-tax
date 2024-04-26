@@ -11,5 +11,8 @@ func NewRouter() *echo.Echo {
 	// Router
 	router.GET("/", controller.Hello)
 
+	// Core API
+	router.POST("/api/tax", controller.CalculateTaxController)
+
 	return router
 }
