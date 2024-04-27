@@ -16,10 +16,10 @@ func NewRouter() *echo.Echo {
 	api.Use(middleware.BasicAuth(utils.Authenticated))
 
 	// Router
-	router.GET("/", controller.Hello)
+	api.GET("/", controller.Hello)
 
 	// Core API
-	router.POST("/tax/calculations", controller.CalculateTaxController)
+	api.POST("/tax/calculations", controller.CalculateTaxController)
 
 	// router.POST("/admin/deductions/personal")
 
