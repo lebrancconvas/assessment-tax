@@ -29,5 +29,7 @@ func CalculateTax(taxData form.RequestData) (float64, error) {
 		netIncome -= rate.LimitIncome
 	}
 
+	taxResult -= taxData.WHT
+
 	return taxResult, nil
 }
