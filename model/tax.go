@@ -11,6 +11,10 @@ var allowance float64 = 60000
 func CalculateTax(taxData form.RequestData) (float64, error) {
 	netIncome := taxData.TotalIncome - allowance
 
+	for _, anotherAllowance := range taxData.Allowances {
+		netIncome -= anotherAllowance.Amount
+	}
+
 	var taxResult float64 = 0.0
 
 	var rates = []form.Rate{
