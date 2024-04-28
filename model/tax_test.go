@@ -6,7 +6,7 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/labstack/echo"
+	"github.com/labstack/echo/v4"
 	"github.com/lebrancconvas/assessment-tax/controller"
 	"github.com/lebrancconvas/assessment-tax/form"
 	"github.com/stretchr/testify/assert"
