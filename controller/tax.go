@@ -18,10 +18,16 @@ func CalculateTaxController(c echo.Context) error {
 
 	result, err := model.CalculateTax(requestData)
 	if err != nil {
-		return c.JSON(http.StatusInternalServerError, err)
+		return c.JSON(http.StatusUnprocessableEntity, err)
+	}
+
+	taxLevel, err := model.CalculateTaxLevel(requestData)
+	if err != nil {
+		return c.JSON(http.StatusUnprocessableEntity, err)
 	}
 
 	return c.JSON(http.StatusOK, form.ResponseData{
 		Tax: result,
+		TaxLevels: taxLevel,
 	})
 }
