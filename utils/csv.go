@@ -6,7 +6,7 @@ import (
 	"os"
 )
 
-func CSVtoJSON(path string) [][]string{
+func ExtractCSVData(path string) [][]string{
 	csvFile, err := os.Open(path)
 	if err != nil {
 		log.Fatal(err)
