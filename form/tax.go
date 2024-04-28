@@ -25,3 +25,4 @@ type Rate struct {
 	LimitIncome float64
 	TaxRate float64
 }
+
