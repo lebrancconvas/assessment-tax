@@ -12,7 +12,7 @@ func NewRouter() *echo.Echo {
 	router.Use(middleware.Logger())
 	router.Use(middleware.Recover())
 
-	api := router.Group("/")
+	api := router.Group("")
 	api.Use(middleware.BasicAuth(utils.Authenticated))
 
 	// Router
