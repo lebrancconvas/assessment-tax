@@ -22,6 +22,7 @@ func NewRouter() *echo.Echo {
 	api.POST("/tax/calculations", controller.CalculateTaxController)
 
 	api.POST("/admin/deductions/personal", controller.SetPersonalDeduction)
+	api.POST("/admin/deductions/k-receipt", controller.SetKReceiptDeduction)
 
 	return router
 }

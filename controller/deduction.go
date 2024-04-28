@@ -30,3 +30,26 @@ func SetPersonalDeduction(c echo.Context) error {
 		PersonalDeduction: res,
 	})
 }
+
+func SetKReceiptDeduction(c echo.Context) error {
+	req := form.RequestKReceiptDeductionData{}
+
+	err := c.Bind(&req)
+	if err != nil {
+		return c.JSON(http.StatusBadRequest, err)
+	}
+
+	err = model.CreateKReceiptDeduction(req.Amount)
+	if err != nil {
+		return c.JSON(http.StatusUnprocessableEntity, err)
+	}
+
+	res, err := model.GetKReceiptDeduction()
+	if err != nil {
+		return c.JSON(http.StatusUnprocessableEntity, err)
+	}
+
+	return c.JSON(http.StatusOK, form.ResponseKReceiptDeductionData{
+		KReceiptDeduction: res,
+	})
+}

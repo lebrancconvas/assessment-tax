@@ -44,3 +44,45 @@ func GetPersonalDeduction() (float64, error) {
 
 	return amount, nil
 }
+func CreateKReceiptDeduction(amount float64) error {
+	db := db.GetDB()
+
+	stmt, err := db.Prepare(`
+		INSERT INTO deductions(kreceipt_deduction)
+		VALUES($1)
+	`)
+	if err != nil {
+		return err
+	}
+	defer stmt.Close()
+
+	_, err = stmt.Exec(amount)
+	if err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func GetKReceiptDeduction() (float64, error) {
+	db := db.GetDB()
+
+	stmt, err := db.Prepare(`
+		SELECT kreceipt_deduction
+		FROM deductions
+		ORDER BY id DESC
+		LIMIT 1
+	`)
+	if err != nil {
+		return 0, err
+	}
+	defer stmt.Close()
+
+	var amount float64
+	err = stmt.QueryRow().Scan(&amount)
+	if err != nil {
+		return 0, err
+	}
+
+	return amount, nil
+}
