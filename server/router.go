@@ -21,7 +21,7 @@ func NewRouter() *echo.Echo {
 	// Core API
 	api.POST("/tax/calculations", controller.CalculateTaxController)
 
-	// router.POST("/admin/deductions/personal")
+	api.POST("/admin/deductions/personal", controller.SetPersonalDeduction)
 
 	return router
 }
