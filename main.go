@@ -7,6 +7,7 @@ import (
 	"os"
 
 	"github.com/joho/godotenv"
+	"github.com/lebrancconvas/assessment-tax/db"
 	"github.com/lebrancconvas/assessment-tax/server"
 )
 
@@ -31,6 +32,9 @@ func main() {
 	}
 
 	flag.Parse()
+
+	// Database Connect.
+	db.Init()
 
 	// Server Start
 	server.Start()
