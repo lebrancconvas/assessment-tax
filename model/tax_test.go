@@ -35,6 +35,7 @@ func TestCalculateTax(t *testing.T) {
 func TestCalculateTaxServer(t *testing.T) {
 	testRequestJSON := `{"totalIncome: 50000.0, "wht": 0.0, "allowances": [{"allowanceType": "donation", "amount": 0.0}]`
 	testResponseJSON := `{tax: 29000.0}`
+
 	router := echo.New()
 	req := httptest.NewRequest(http.MethodPost, "/tax/calculations", strings.NewReader(testRequestJSON))
 	req.Header.Set(echo.HeaderContentType, echo.MIMEApplicationJSON)
